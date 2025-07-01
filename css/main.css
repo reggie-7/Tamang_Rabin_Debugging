@@ -124,3 +124,9 @@ h1, p {
         flex-direction: row;
     }
 }
+
+/* Highlight the label zone when you drag in and out the label */
+.target-zone.highlight {
+    background-color: rgb(111, 246, 34);
+    border-color: #35f6f9;
+}
