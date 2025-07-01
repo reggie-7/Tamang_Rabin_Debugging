@@ -1,5 +1,5 @@
 # Tamang_Rabin_Debugging
-This repo is for the fixing bugs of a game.
+This repo contains a drag-and-drop Human Anatomy Puzzle Game.
 
 
 ## Description
