@@ -34,6 +34,23 @@ function resetGame() {
     placedLabels.forEach(label => labelBox.appendChild(label));
 }
 
+function dragEnter(event) {
+    event.preventDefault(); 
+    this.classList.add("highlight");
+}
+
+function dragLeave() {
+    this.classList.remove("highlight");
+}
+
+function drop(event) {
+    event.preventDefault();
+    if (this.children.length > 0) return;
+    this.appendChild(currentDraggedElement);
+    this.classList.remove("highlight");
+    currentDraggedElement = null;
+}
+
 //Event listeners
 
 labels.forEach(label => {
@@ -46,3 +63,12 @@ targetZones.forEach(target => {
 });
 
 resetBtn.addEventListener("click", resetGame);
+
+targetZones.forEach(target => {
+    target.addEventListener("dragover", dragOver);
+    target.addEventListener("drop", drop);
+
+    target.addEventListener("dragenter", dragEnter);
+
+    target.addEventListener("dragleave", dragLeave);
+});
