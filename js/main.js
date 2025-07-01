@@ -3,6 +3,8 @@ console.log("JavaScript File is linked");
 //variables
 const labels = document.querySelectorAll(".label");
 const targetZones = document.querySelectorAll(".target-zone");
+const resetBtn = document.getElementById("reset-btn");
+const labelBox = document.getElementById("label-box");
 let currentDraggedElement = null;
 
 //functions
@@ -27,6 +29,11 @@ function drop(event) {
     currentDraggedElement = null;
 }
 
+function resetGame() {
+    const placedLabels = document.querySelectorAll(".label");
+    placedLabels.forEach(label => labelBox.appendChild(label));
+}
+
 //Event listeners
 
 labels.forEach(label => {
@@ -37,3 +44,5 @@ targetZones.forEach(target => {
     target.addEventListener("dragover", dragOver);
     target.addEventListener("drop", drop);
 });
+
+resetBtn.addEventListener("click", resetGame);
